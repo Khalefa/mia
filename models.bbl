@@ -1,0 +1,103 @@
+\begin{thebibliography}{10}
+
+\bibitem{AG99}
+S.~Acharya, P.~B. Gibbons, V.~Poosala, and S.~Ramaswamy.
+\newblock Join synopses for approximate query answering.
+\newblock {\em SIGMOD Rec.}, 28(2):275--286, June 1999.
+
+\bibitem{pluse}
+Y.~Ahmad, O.~Papaemmanouil, U.~\c{C}etintemel, and J.~Rogers.
+\newblock {Simultaneous Equation Systems for Query Processing on
+  Continuous-Time Data Streams}.
+\newblock In {\em ICDE}, pages 666--675, 2008.
+
+\bibitem{clipping}
+A.~J. Bagnall, C.~A. Ratanamahatana, E.~J. Keogh, S.~Lonardi, and G.~J.
+  Janacek.
+\newblock A bit level representation for time series data mining with shape
+  based similarity.
+\newblock {\em DMKD}, 13(1):11--40, 2006.
+
+\bibitem{tBOX76a}
+G.~E.~P. Box and G.~M. Jenkins.
+\newblock {\em Time Series Analysis, Forecasting, and Control}.
+\newblock Holden-Day, 1976.
+
+\bibitem{isax2}
+A.~Camerra, T.~Palpanas, J.~Shieh, and E.~J. Keogh.
+\newblock {{\it i}SAX 2.0: Indexing and Mining One Billion Time Series}.
+\newblock In {\em ICDM}, pages 58--67, 2010.
+
+\bibitem{STL}
+R.~Cleveland, W.~Cleveland, J.~McRae, and I.~Terpenning.
+\newblock Stl: A seasonal-trend decomposition procedure based on loess.
+\newblock {\em Journal of Official Statistics}, 6(1):3--73, 1990.
+
+\bibitem{iran}
+B.~B. de~Mesquita.
+\newblock {\em Forecasting Policy Futures}.
+\newblock Ohio State Univ, 2004.
+
+\bibitem{MauveDB}
+A.~Deshpande and S.~Madden.
+\newblock {MauveDB: supporting model-based user views in database systems}.
+\newblock In {\em SIGMOD Conference}, pages 73--84, 2006.
+
+\bibitem{DTPE08}
+H.~Ding, G.~Trajcevski, P.~Scheuermann, X.~Wang, and E.~Keogh.
+\newblock Querying and mining of time series data: experimental comparison of
+  representations and distance measures.
+\newblock {\em Proc. VLDB Endow.}, 1(2):1542--1552, Aug. 2008.
+
+\bibitem{FRL12}
+U.~Fischer, F.~Rosenthal, and W.~Lehner.
+\newblock {F2DB: The Flash-Forward Database System}.
+\newblock In {\em ICDE}, 2012.
+
+\bibitem{arimaEng}
+R.~Kavasseri and K.~Seetharaman.
+\newblock Day-ahead wind speed forecasting using f-arima models.
+\newblock {\em Renewable Energy}, 34(5):1388--1393, 2009.
+
+\bibitem{Decompose}
+M.~Kendall and A.~Stuart.
+\newblock {\em The Advanced Theory of Statistics}, volume~3.
+\newblock Griffin, 1983.
+
+\bibitem{KML10}
+M.~E. Khalefa, M.~F. Mokbel, and J.~J. Levandoski.
+\newblock Skyline query processing for uncertain data.
+\newblock In {\em CIKM}, pages 1293--1296, 2010.
+
+\bibitem{stock}
+K.~Kohara, T.~Ishikawa, Y.~Fukuhara, and Y.~Nakamura.
+\newblock Stock price prediction using prior knowledge and neural networks.
+\newblock In {\em Intelligent Systems in Accounting, Finance \& Management},
+  volume~6, pages 11--22, 1997.
+
+\bibitem{cheb}
+J.~C. Mason and D.~Handscomb.
+\newblock {\em Chebyshev Polynomials}.
+\newblock Chapman \& Hall, 2003.
+
+\bibitem{ArimaDB}
+F.~Rosenthal and W.~Lehner.
+\newblock Effcient in-database maintenance of arima models.
+\newblock In {\em SSDBM}, pages 537--545, 2011.
+
+\bibitem{Shatkay}
+H.~Shatkay and S.~B. Zdonik.
+\newblock Approximate queries and representations for large data sequences.
+\newblock In {\em ICDE}, pages 536--545, 1996.
+
+\bibitem{isax}
+J.~Shieh and E.~J. Keogh.
+\newblock {{\it i}SAX: indexing and mining terabyte sized time series}.
+\newblock In {\em KDD}, pages 623--631, 2008.
+
+\bibitem{functionDB}
+A.~Thiagarajan and S.~Madden.
+\newblock Querying continuous functions in a database system.
+\newblock In {\em SIGMOD Conference}, pages 791--804, 2008.
+
+\end{thebibliography}
