@@ -1,6 +1,7 @@
 \documentclass[10pt,conference,letterpaper]{IEEEtran}
 \usepackage{times,amsmath,epsfig}
 \usepackage{algorithm}
+\usepackage{subfigure}
 \usepackage{algpseudocode}
 \newcommand{\LN}{hierarchical model index}
 \newcommand{\LNs}{hierarchical model index }
@@ -89,9 +90,12 @@ In the rest of this paper, first we formalize the problem statements in Section~
 
 \section{Running Example}
 To motivate our proposed problem, we start by introducing a running real-world example based on the power consumption in UK grid real world time series.
-\begin{figure}
-\includegraphics{}
-\end{figure}
+\begin{figure*}
+\
+\includegraphics{figs/example2_1.eps.pdf}
+\includegraphics{figs/example2_1.eps.pdf}
+\caption{Motivating Example}
+\end{figure*}
 \section{TimeTravel Overview}
 \label{sec:overview}
 Our prototype  system, TimeTravel, is implemented {\em inside} the PostgreSQL database engine.  The user specifies a number of time series and the system builds a separate model index for each. Figure~\ref{fig:arch} illustrates the main modules and data structures of TimeTravel. {Time series} is stored as an array indexed by time. A time series can have an arbitrary number of seasonality periods (e.g., the shown time series exhibits two seasonality periods $P_1$ and $P_2$). The \LNs is presented in the top center of Figure~\ref{fig:arch}. Each model segment, MS for short, at level $l$ has zero or more children segments at level $l-1$.  Each child segment improves its parent's representation of the underlying time series by building either (a)~a more detailed model over the time series, 

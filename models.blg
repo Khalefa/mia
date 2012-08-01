@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: \\CS.AAU.DK\Users\mohamed\Desktop\Models\models.aux
+This is BibTeX, Version 0.99dThe top-level auxiliary file: C:\Models\VLDB13\models.aux
 The style file: abbrv.bst
 Database file #1: demo.bib
 I was expecting a `,' or a `}'---line 116 of file demo.bib
@@ -6,52 +6,122 @@ I was expecting a `,' or a `}'---line 116 of file demo.bib
  :   %crossref  = {DBLP:conf/btw/2011},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 131 of file demo.bib
+I was expecting a `,' or a `}'---line 132 of file demo.bib
  :   year =   {1976}
  :                  %,
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 148 of file demo.bib
+I was expecting a `,' or a `}'---line 149 of file demo.bib
  :   
  :   %ee        = {http://dx.doi.org/10.1007/s10618-005-0028-0},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 158 of file demo.bib
+I was expecting a `,' or a `}'---line 159 of file demo.bib
  :   
  :   %ee        = {http://doi.acm.org/10.1145/1401890.1401966}
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 170 of file demo.bib
- :   
- :   %ee        = {http://dx.doi.org/10.1109/ICDM.2010.124}
-(Error may have been on previous line)
+I was expecting a `,' or a `}'---line 167 of file demo.bib
+ :   title     = {{\it i}SAX 2.0}
+ :                               : indexing and mining one billion time series}},
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 181 of file demo.bib
+I was expecting a `,' or a `}'---line 182 of file demo.bib
  :   
  :   %,
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 197 of file demo.bib
+I was expecting a `,' or a `}'---line 198 of file demo.bib
  :   
  :   %ee        = {http://doi.ieeecomputersociety.org/10.1109/ICDE.2008.4497475}
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 206 of file demo.bib
+I was expecting a `,' or a `}'---line 207 of file demo.bib
  :  
  :  % ee        = {http://doi.acm.org/10.1145/1376616.1376696}
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 215 of file demo.bib
+I was expecting a `,' or a `}'---line 216 of file demo.bib
  :   
  :   %ee        = {http://doi.acm.org/10.1145/1142473.1142483}
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 224 of file demo.bib
+I was expecting a `,' or a `}'---line 225 of file demo.bib
  :  
  :  % ee        = {http://doi.ieeecomputersociety.org/10.1109/ICDE.1996.492204}
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 402 of file demo.bib
+ :   
+ :   %crossref  = {DBLP:conf/btw/2011},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Repeated entry---line 405 of file demo.bib
+ : @inproceedings{FRL12
+ :                     ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 413 of file demo.bib
+ :  @book{tBOX76a
+ :               ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 421 of file demo.bib
+ : @article{clipping
+ :                  ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 437 of file demo.bib
+ : @inproceedings{isax
+ :                    ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 447 of file demo.bib
+ : @inproceedings{isax2
+ :                     ,
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 467 of file demo.bib
+ :   
+ :   %,
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Repeated entry---line 472 of file demo.bib
+ : @inproceedings{pluse
+ :                     ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 485 of file demo.bib
+ : @inproceedings{functionDB
+ :                          ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 494 of file demo.bib
+ : @inproceedings{MauveDB
+ :                       ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 503 of file demo.bib
+ : @inproceedings{Shatkay
+ :                       ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 512 of file demo.bib
+ :  @book{cheb
+ :            ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 521 of file demo.bib
+ : @inproceedings{ArimaDB
+ :                       ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 528 of file demo.bib
+ : @book{iran
+ :           ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 535 of file demo.bib
+ : @inproceedings{stock
+ :                     ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 549 of file demo.bib
+ :  @article{arimaEng
+ :                   ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 563 of file demo.bib
+ :  @book{Decompose
+ :                 ,
+I'm skipping whatever remains of this entry
 A bad cross reference---entry "KML10"
 refers to entry "DBLP:conf/cikm/2010", which doesn't exist
 Warning--I didn't find a database entry for "DBLP:conf/cikm/2010"
-Warning--can't use both volume and number fields in stock
-(There were 11 error messages)
+Warning--empty booktitle in isax2
+Warning--empty year in isax2
+(There were 28 error messages)

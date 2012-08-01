@@ -7,8 +7,8 @@ S.~Acharya, P.~B. Gibbons, V.~Poosala, and S.~Ramaswamy.
 
 \bibitem{pluse}
 Y.~Ahmad, O.~Papaemmanouil, U.~\c{C}etintemel, and J.~Rogers.
-\newblock {Simultaneous Equation Systems for Query Processing on
-  Continuous-Time Data Streams}.
+\newblock Simultaneous equation systems for query processing on continuous-time
+  data streams.
 \newblock In {\em ICDE}, pages 666--675, 2008.
 
 \bibitem{clipping}
@@ -25,8 +25,7 @@ G.~E.~P. Box and G.~M. Jenkins.
 
 \bibitem{isax2}
 A.~Camerra, T.~Palpanas, J.~Shieh, and E.~J. Keogh.
-\newblock {{\it i}SAX 2.0: Indexing and Mining One Billion Time Series}.
-\newblock In {\em ICDM}, pages 58--67, 2010.
+\newblock {\it i}sax 2.0.
 
 \bibitem{STL}
 R.~Cleveland, W.~Cleveland, J.~McRae, and I.~Terpenning.
@@ -40,8 +39,8 @@ B.~B. de~Mesquita.
 
 \bibitem{MauveDB}
 A.~Deshpande and S.~Madden.
-\newblock {MauveDB: supporting model-based user views in database systems}.
-\newblock In {\em SIGMOD Conference}, pages 73--84, 2006.
+\newblock {MauveDB:} supporting model-based user views in database systems.
+\newblock In {\em SIGMOD}, pages 73--84, 2006.
 
 \bibitem{DTPE08}
 H.~Ding, G.~Trajcevski, P.~Scheuermann, X.~Wang, and E.~Keogh.
@@ -51,8 +50,8 @@ H.~Ding, G.~Trajcevski, P.~Scheuermann, X.~Wang, and E.~Keogh.
 
 \bibitem{FRL12}
 U.~Fischer, F.~Rosenthal, and W.~Lehner.
-\newblock {F2DB: The Flash-Forward Database System}.
-\newblock In {\em ICDE}, 2012.
+\newblock {F2DB:} the flash-forward database system.
+\newblock In {\em ICDE}, pages 1245--1248, 2012.
 
 \bibitem{arimaEng}
 R.~Kavasseri and K.~Seetharaman.
@@ -72,8 +71,8 @@ M.~E. Khalefa, M.~F. Mokbel, and J.~J. Levandoski.
 \bibitem{stock}
 K.~Kohara, T.~Ishikawa, Y.~Fukuhara, and Y.~Nakamura.
 \newblock Stock price prediction using prior knowledge and neural networks.
-\newblock In {\em Intelligent Systems in Accounting, Finance \& Management},
-  volume~6, pages 11--22, 1997.
+\newblock {\em Intelligent Systems in Accounting, Finance \& Management},
+  6(1):11--22, 1997.
 
 \bibitem{cheb}
 J.~C. Mason and D.~Handscomb.
@@ -98,6 +97,6 @@ J.~Shieh and E.~J. Keogh.
 \bibitem{functionDB}
 A.~Thiagarajan and S.~Madden.
 \newblock Querying continuous functions in a database system.
-\newblock In {\em SIGMOD Conference}, pages 791--804, 2008.
+\newblock In {\em SIGMOD}, pages 791--804, 2008.
 
 \end{thebibliography}
