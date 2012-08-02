@@ -57,11 +57,15 @@ Consider a motivating example from the energy domain: the power grid operator wa
 %Because forecast methods could not be used to store historical data, we  model historical data separately.
 
 
+
+
+
 \begin{figure*}[th]
 \center
-\includegraphics[width=5.5in]{overview5.pdf}
 
+\includegraphics[width=5.5in]{figs/overview5.pdf}
 \caption{TimeTravel System Overview}
+
 \label{fig:arch}
 \end{figure*} 
 
@@ -89,13 +93,33 @@ Over time, {\it new} values are added to the time series, and we incrementally u
 In the rest of this paper, first we formalize the problem statements in Section~\ref{sec:form}.   Section~\ref{sec:overview} provides an overview of the our proposed system. Section~\ref{sec:details} describes building the hierarchical model index, and  compression Section~\ref{sec:query} gives the details of query optimization and processing for approximate and exact queries.  The  related work is presented in Section~\ref{sec:related}. Section~\ref{sec:experiments} gives  our experimental analysis for our proposed system   using  both real-world time series data and synthetic data.
 
 \section{Running Example}
-To motivate our proposed problem, we start by introducing a running real-world example based on the power consumption in UK grid real world time series.
-\begin{figure*}
-\
-\includegraphics{figs/example2_1.eps.pdf}
-\includegraphics{figs/example2_1.eps.pdf}
-\caption{Motivating Example}
-\end{figure*}
+To motivate our proposed problem, we start by introducing a small example based on the power consumption in UK grid real world time series.
+
+%\begin{figure*}[t]
+%\center
+%\subfigure[Caption of subfigure 1]{
+%\includegraphics[width=2.0in]{figs/example2_1.pdf}
+ 
+%    \label{fig:subfig1}
+%}
+%\subfigure[Caption of subfigure 2]{
+%\includegraphics[width=2.0in]{figs/example2_2.pdf}
+%    \label{fig:subfig2}
+%}
+%\caption{Motivating Example}
+%\end{figure*}
+\begin{figure*}[th]
+\center
+\subfigure{
+\includegraphics[width=2.5in]{figs/example2_1.pdf}}
+\subfigure{
+\includegraphics[width=2.5in]{figs/example2_2.pdf}}
+
+\caption{TimeTravel System Overview}
+
+\label{fig:arch}
+\end{figure*} 
+
 \section{TimeTravel Overview}
 \label{sec:overview}
 Our prototype  system, TimeTravel, is implemented {\em inside} the PostgreSQL database engine.  The user specifies a number of time series and the system builds a separate model index for each. Figure~\ref{fig:arch} illustrates the main modules and data structures of TimeTravel. {Time series} is stored as an array indexed by time. A time series can have an arbitrary number of seasonality periods (e.g., the shown time series exhibits two seasonality periods $P_1$ and $P_2$). The \LNs is presented in the top center of Figure~\ref{fig:arch}. Each model segment, MS for short, at level $l$ has zero or more children segments at level $l-1$.  Each child segment improves its parent's representation of the underlying time series by building either (a)~a more detailed model over the time series, 
@@ -259,7 +283,7 @@ We use  the linear Chebyshev regression method~\cite{cheb} to approximate the tr
 minimizes the largest deviation (i.e. error) from the original curve (i.e., time series) among the polynomials of the same order. Finally, the algorithm returns possible representations for the trend components. (Line~\ref{algt:r} in Algorithm~\ref{alg:t})
 \begin{figure}
 \center
-\includegraphics[width=3.0in]{hints.pdf}
+\includegraphics[width=3.0in]{figs/hints.pdf}
 \caption{Possible Hints for Seasonal Hierarchy}
 \label{fig:hints}
 \end{figure}
