@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.11.30)  2 AUG 2012 02:14
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.11.30)  9 AUG 2012 21:52
 entering extended mode
 **C:/Models/VLDB13/models.tex
 (C:/Models/VLDB13/models.tex
@@ -273,11 +273,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 ))
 \c@mydef=\count117
 
-(C:\Models\VLDB13\models.aux
-
-LaTeX Warning: Label `fig:arch' multiply defined.
-
-)
+(C:\Models\VLDB13\models.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
 LaTeX Font Info:    ... okay on input line 29.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
@@ -290,7 +286,8 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
 LaTeX Font Info:    ... okay on input line 29.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
 LaTeX Font Info:    ... okay on input line 29.
- ("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count118
 \scratchdimen=\dimen128
@@ -321,67 +318,74 @@ File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <9> not available
 (Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 30.
 
-<figs/overview5.pdf, id=1, 757.8353pt x 243.74564pt>
-File: figs/overview5.pdf Graphic file (type pdf)
- <use figs/overview5.pdf>
-Package pdftex.def Info: figs/overview5.pdf used on input line 66.
-(pdftex.def)             Requested size: 397.48499pt x 127.84563pt.
-
-[1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
-
-
-]
-
-LaTeX Warning: Reference `sec:details' on page 2 undefined on input line 93.
-
-
-LaTeX Warning: Reference `sec:query' on page 2 undefined on input line 93.
-
-
-LaTeX Warning: Reference `sec:experiments' on page 2 undefined on input line 93
-.
-
-<figs/example2_1.pdf, id=15, 364.88812pt x 251.69853pt>
+<figs/example2_1.pdf, id=1, 369.50136pt x 250.1605pt>
 File: figs/example2_1.pdf Graphic file (type pdf)
 
 <use figs/example2_1.pdf>
-Package pdftex.def Info: figs/example2_1.pdf used on input line 114.
-(pdftex.def)             Requested size: 180.67499pt x 124.63147pt.
+Package pdftex.def Info: figs/example2_1.pdf used on input line 65.
+(pdftex.def)             Requested size: 144.54pt x 97.85611pt.
 
-<figs/example2_2.pdf, id=16, 364.88812pt x 251.69853pt>
+<figs/example2_2.pdf, id=2, 369.50136pt x 250.1605pt>
 File: figs/example2_2.pdf Graphic file (type pdf)
 
 <use figs/example2_2.pdf>
-Package pdftex.def Info: figs/example2_2.pdf used on input line 116.
-(pdftex.def)             Requested size: 180.67499pt x 124.63147pt.
- [2 <C:/Models/VLDB13/figs/overview5.pdf, page is rotated 90 degrees>]
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 157.
+Package pdftex.def Info: figs/example2_2.pdf used on input line 67.
+(pdftex.def)             Requested size: 144.54pt x 97.85611pt.
+ [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
 
- ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
+
+]
+Underfull \vbox (badness 1158) has occurred while \output is active []
+
+
+
+LaTeX Warning: Reference `sec:details' on page 2 undefined on input line 90.
+
+
+LaTeX Warning: Reference `sec:query' on page 2 undefined on input line 90.
+
+
+LaTeX Warning: Reference `sec:experiments' on page 2 undefined on input line 90
+.
+
+<figs/overview3.pdf, id=16, 706.34453pt x 197.36636pt>
+File: figs/overview3.pdf Graphic file (type pdf)
+
+<use figs/overview3.pdf>
+Package pdftex.def Info: figs/overview3.pdf used on input line 95.
+(pdftex.def)             Requested size: 433.62pt x 121.16426pt.
+ [2 <C:/Models/VLDB13/figs/example2_1.pdf> <C:/Models/VLDB13/figs/example2_2.pd
+f>]
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 135.
+
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 157.
- [3 <C:/Models/VLDB13/figs/example2_1.pdf> <C:/Models/VLDB13/figs/example2_2.pd
-f>]
-Underfull \hbox (badness 10000) in paragraph at lines 270--271
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 135.
+ [3 <C:/Models/VLDB13/figs/overview3.pdf, page is rotated 90 degrees>]
+Underfull \hbox (badness 10000) in paragraph at lines 248--249
 [] $[] \OMS/cmsy/m/n/10   [] []f\OML/cmm/m/it/10 Mean\OT1/cmr/m/n/10 (\OML/cmm/
 m/it/10 T\OT1/cmr/m/n/10 [1 :
  []
 
-<figs/hints.pdf, id=136, 741.4069pt x 245.50319pt>
+<figs/hints.pdf, id=188, 741.4069pt x 245.50319pt>
 File: figs/hints.pdf Graphic file (type pdf)
  <use figs/hints.pdf>
-Package pdftex.def Info: figs/hints.pdf used on input line 286.
+Package pdftex.def Info: figs/hints.pdf used on input line 264.
 (pdftex.def)             Requested size: 216.81pt x 71.79346pt.
 
 [4]
-Underfull \hbox (badness 4505) in paragraph at lines 325--326
+Underfull \hbox (badness 4505) in paragraph at lines 303--304
 [] $[] \OMS/cmsy/m/n/10   [] [ \OML/cmm/m/it/10 FindPossibleTrend\OT1/cmr/m/n/1
 0 (\OML/cmm/m/it/10 S:t\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 
  []
 
-[5 <C:/Models/VLDB13/figs/hints.pdf, page is rotated 90 degrees>] [6]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [5 <C:/Models/VLDB13/figs/hints.pdf, page is rotated 90 degrees>] [6]
 (C:\Models\VLDB13\models.bbl)
 
 ** Conference Paper **
@@ -401,17 +405,17 @@ Before submitting the final camera ready copy, remember to:
 LaTeX Warning: There were undefined references.
 
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 3573 strings out of 494045
- 49573 string characters out of 3145962
- 115465 words of memory out of 3000000
- 6817 multiletter control sequences out of 15000+200000
+ 3574 strings out of 494045
+ 49586 string characters out of 3145962
+ 115437 words of memory out of 3000000
+ 6818 multiletter control sequences out of 15000+200000
  41037 words of font info for 88 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 34i,10n,24p,1296b,307s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 34i,10n,24p,1321b,307s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
 m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program 
 Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Fi
@@ -430,9 +434,9 @@ pe1/urw/courier/ucrr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/t
 imes/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmbi8
 a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/P
 rogram Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on models.pdf (7 pages, 414921 bytes).
+Output written on models.pdf (7 pages, 424277 bytes).
 PDF statistics:
- 227 PDF objects out of 1000 (max. 8388607)
+ 279 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
