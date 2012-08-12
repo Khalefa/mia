@@ -3,7 +3,7 @@ Type=TeXnicCenterProjectSessionInformation
 Version=2
 
 [SessionInfo]
-ActiveTab=2
+ActiveTab=0
 FrameCount=1
 ActiveFrame=0
 
@@ -28,11 +28,11 @@ cyCur=483
 cyMin=10
 
 [Frame0_Col0]
-cxCur=554
+cxCur=793
 cxMin=10
 
 [Frame0_View0,0]
-Cursor.row=0
-Cursor.column=0
-TopSubLine=1731
+Cursor.row=73
+Cursor.column=146
+TopSubLine=1233
 
