@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.11.30)  9 AUG 2012 21:52
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.11.30)  13 AUG 2012 03:12
 entering extended mode
 **C:/Models/VLDB13/models.tex
 (C:/Models/VLDB13/models.tex
@@ -356,16 +356,16 @@ Package pdftex.def Info: figs/overview3.pdf used on input line 95.
 (pdftex.def)             Requested size: 433.62pt x 121.16426pt.
  [2 <C:/Models/VLDB13/figs/example2_1.pdf> <C:/Models/VLDB13/figs/example2_2.pd
 f>]
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 135.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 134.
 
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 135.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 134.
  [3 <C:/Models/VLDB13/figs/overview3.pdf, page is rotated 90 degrees>]
-Underfull \hbox (badness 10000) in paragraph at lines 248--249
+Underfull \hbox (badness 10000) in paragraph at lines 247--248
 [] $[] \OMS/cmsy/m/n/10   [] []f\OML/cmm/m/it/10 Mean\OT1/cmr/m/n/10 (\OML/cmm/
 m/it/10 T\OT1/cmr/m/n/10 [1 :
  []
@@ -373,11 +373,11 @@ m/it/10 T\OT1/cmr/m/n/10 [1 :
 <figs/hints.pdf, id=188, 741.4069pt x 245.50319pt>
 File: figs/hints.pdf Graphic file (type pdf)
  <use figs/hints.pdf>
-Package pdftex.def Info: figs/hints.pdf used on input line 264.
+Package pdftex.def Info: figs/hints.pdf used on input line 263.
 (pdftex.def)             Requested size: 216.81pt x 71.79346pt.
 
 [4]
-Underfull \hbox (badness 4505) in paragraph at lines 303--304
+Underfull \hbox (badness 4505) in paragraph at lines 302--303
 [] $[] \OMS/cmsy/m/n/10   [] [ \OML/cmm/m/it/10 FindPossibleTrend\OT1/cmr/m/n/1
 0 (\OML/cmm/m/it/10 S:t\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 
  []
@@ -386,7 +386,106 @@ Underfull \hbox (badness 4505) in paragraph at lines 303--304
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [5 <C:/Models/VLDB13/figs/hints.pdf, page is rotated 90 degrees>] [6]
-(C:\Models\VLDB13\models.bbl)
+<figs/expr/g_scal_l1i1.pdf, id=218, 353.48894pt x 246.25882pt>
+File: figs/expr/g_scal_l1i1.pdf Graphic file (type pdf)
+
+<use figs/expr/g_scal_l1i1.pdf>
+Package pdftex.def Info: figs/expr/g_scal_l1i1.pdf used on input line 490.
+(pdftex.def)             Requested size: 108.405pt x 75.52028pt.
+
+<figs/expr/g_scal_l1i2.pdf, id=219, 353.48894pt x 246.25882pt>
+File: figs/expr/g_scal_l1i2.pdf Graphic file (type pdf)
+
+<use figs/expr/g_scal_l1i2.pdf>
+Package pdftex.def Info: figs/expr/g_scal_l1i2.pdf used on input line 492.
+(pdftex.def)             Requested size: 108.405pt x 75.52028pt.
+
+<figs/expr/g_scal_l1i10.pdf, id=220, 353.48894pt x 246.25882pt>
+File: figs/expr/g_scal_l1i10.pdf Graphic file (type pdf)
+
+<use figs/expr/g_scal_l1i10.pdf>
+Package pdftex.def Info: figs/expr/g_scal_l1i10.pdf used on input line 494.
+(pdftex.def)             Requested size: 108.405pt x 75.52028pt.
+
+<figs/expr/g_scal_l0i100.pdf, id=221, 353.48894pt x 246.25882pt>
+File: figs/expr/g_scal_l0i100.pdf Graphic file (type pdf)
+
+<use figs/expr/g_scal_l0i100.pdf>
+Package pdftex.def Info: figs/expr/g_scal_l0i100.pdf used on input line 496.
+(pdftex.def)             Requested size: 108.405pt x 75.52028pt.
+
+<figs/expr/g_layers_i2.pdf, id=222, 345.11665pt x 246.25882pt>
+File: figs/expr/g_layers_i2.pdf Graphic file (type pdf)
+
+<use figs/expr/g_layers_i2.pdf>
+Package pdftex.def Info: figs/expr/g_layers_i2.pdf used on input line 504.
+(pdftex.def)             Requested size: 144.54pt x 103.13866pt.
+
+<figs/expr/g_layers_i10.pdf, id=223, 345.11665pt x 246.25882pt>
+File: figs/expr/g_layers_i10.pdf Graphic file (type pdf)
+
+<use figs/expr/g_layers_i10.pdf>
+Package pdftex.def Info: figs/expr/g_layers_i10.pdf used on input line 506.
+(pdftex.def)             Requested size: 144.54pt x 103.13866pt.
+
+<figs/expr/g_layers_i100.pdf, id=224, 345.11665pt x 246.25882pt>
+File: figs/expr/g_layers_i100.pdf Graphic file (type pdf)
+
+<use figs/expr/g_layers_i100.pdf>
+Package pdftex.def Info: figs/expr/g_layers_i100.pdf used on input line 508.
+(pdftex.def)             Requested size: 144.54pt x 103.13866pt.
+
+<figs/expr/g_interval_l0.pdf, id=225, 353.48894pt x 246.25882pt>
+File: figs/expr/g_interval_l0.pdf Graphic file (type pdf)
+
+<use figs/expr/g_interval_l0.pdf>
+Package pdftex.def Info: figs/expr/g_interval_l0.pdf used on input line 516.
+(pdftex.def)             Requested size: 144.54pt x 100.69246pt.
+
+<figs/expr/g_interval_l1.pdf, id=226, 353.48894pt x 246.25882pt>
+File: figs/expr/g_interval_l1.pdf Graphic file (type pdf)
+
+<use figs/expr/g_interval_l1.pdf>
+Package pdftex.def Info: figs/expr/g_interval_l1.pdf used on input line 518.
+(pdftex.def)             Requested size: 144.54pt x 100.69246pt.
+
+<figs/expr/g_interval_l2.pdf, id=227, 353.48894pt x 246.25882pt>
+File: figs/expr/g_interval_l2.pdf Graphic file (type pdf)
+
+<use figs/expr/g_interval_l2.pdf>
+Package pdftex.def Info: figs/expr/g_interval_l2.pdf used on input line 520.
+(pdftex.def)             Requested size: 144.54pt x 100.69246pt.
+
+<figs/expr/g_forecast_MA_l0.pdf, id=228, 350.69852pt x 246.25882pt>
+File: figs/expr/g_forecast_MA_l0.pdf Graphic file (type pdf)
+
+<use figs/expr/g_forecast_MA_l0.pdf>
+Package pdftex.def Info: figs/expr/g_forecast_MA_l0.pdf used on input line 528.
+
+(pdftex.def)             Requested size: 108.405pt x 76.12149pt.
+
+<figs/expr/g_forecast_MA_l1.pdf, id=229, 350.69852pt x 246.25882pt>
+File: figs/expr/g_forecast_MA_l1.pdf Graphic file (type pdf)
+
+<use figs/expr/g_forecast_MA_l1.pdf>
+Package pdftex.def Info: figs/expr/g_forecast_MA_l1.pdf used on input line 530.
+
+(pdftex.def)             Requested size: 108.405pt x 76.12149pt.
+
+<figs/expr/g_forecast_AA.pdf, id=230, 350.69852pt x 246.25882pt>
+File: figs/expr/g_forecast_AA.pdf Graphic file (type pdf)
+
+<use figs/expr/g_forecast_AA.pdf>
+Package pdftex.def Info: figs/expr/g_forecast_AA.pdf used on input line 532.
+(pdftex.def)             Requested size: 108.405pt x 76.12149pt.
+
+<figs/expr/g_forecast.pdf, id=231, 350.56pt x 246.10324pt>
+File: figs/expr/g_forecast.pdf Graphic file (type pdf)
+
+<use figs/expr/g_forecast.pdf>
+Package pdftex.def Info: figs/expr/g_forecast.pdf used on input line 534.
+(pdftex.def)             Requested size: 108.405pt x 76.10344pt.
+ (C:\Models\VLDB13\models.bbl)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -400,19 +499,24 @@ Before submitting the final camera ready copy, remember to:
 
 [7
 
-] (C:\Models\VLDB13\models.aux)
+] [8 <C:/Models/VLDB13/figs/expr/g_scal_l1i1.pdf> <C:/Models/VLDB13/figs/expr/g
+_scal_l1i2.pdf> <C:/Models/VLDB13/figs/expr/g_scal_l1i10.pdf> <C:/Models/VLDB13
+/figs/expr/g_scal_l0i100.pdf> <C:/Models/VLDB13/figs/expr/g_layers_i2.pdf> <C:/
+Models/VLDB13/figs/expr/g_layers_i10.pdf> <C:/Models/VLDB13/figs/expr/g_layers_
+i100.pdf> <C:/Models/VLDB13/figs/expr/g_interval_l0.pdf> <C:/Models/VLDB13/figs
+/expr/g_interval_l1.pdf> <C:/Models/VLDB13/figs/expr/g_interval_l2.pdf> <C:/Mod
+els/VLDB13/figs/expr/g_forecast_MA_l0.pdf> <C:/Models/VLDB13/figs/expr/g_foreca
+st_MA_l1.pdf> <C:/Models/VLDB13/figs/expr/g_forecast_AA.pdf> <C:/Models/VLDB13/
+figs/expr/g_forecast.pdf>] (C:\Models\VLDB13\models.aux)
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 3574 strings out of 494045
- 49586 string characters out of 3145962
+ 3645 strings out of 494045
+ 51587 string characters out of 3145962
  115437 words of memory out of 3000000
- 6818 multiletter control sequences out of 15000+200000
+ 6874 multiletter control sequences out of 15000+200000
  41037 words of font info for 88 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  34i,10n,24p,1321b,307s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -434,9 +538,9 @@ pe1/urw/courier/ucrr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/t
 imes/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmbi8
 a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/P
 rogram Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on models.pdf (7 pages, 424277 bytes).
+Output written on models.pdf (8 pages, 494670 bytes).
 PDF statistics:
- 279 PDF objects out of 1000 (max. 8388607)
+ 366 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 91 words of extra memory for PDF output out of 10000 (max. 10000000)
 
