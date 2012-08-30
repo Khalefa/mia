@@ -107,9 +107,7 @@ In the rest of this paper, first we formalize the problem statements in Section~
 
 \section{TimeTravel System Overview}
 \label{sec:overview}
-Our prototype system, TimeTravel, is implemented {\em inside} the PostgreSQL database engine. For each time series, our proposed system builds a separate model index.  A time series can have an arbitrary number of seasonality periods (e.g., the shown time series exhibits two seasonality periods $P_1$ and $P_2$). The timeseries shown in Figure~\ref{fig:example} has seasonality periods of 10 and 4. The \LNs is presented in the top center of Figure~\ref{fig:arch}. A model  at level $l$ has zero or more children segments at level $l-1$.  Each child model improves its parent's representation of the underlying time series by creating one (or more)  models over a sub range of the timeseries. For example in Figure~\ref{fig:exampletree} the timeseries is divide into two models over [1,17] and [18,50] respectively. To build a child model, we may either use  (a)~sub range of the time series, or (b)~sub range of the error of the parent model. We denote the latter models as $\Delta$Models. 
-Figure~\ref{fig:exampletree} illustrates the hierarchical model index for the time series shown in Figure~\ref{fig:example}. Note that the error for models $M_1$ and $M_2$ is greater than zero, because we use only on seasonality component. Also, the error of the root model is greater than both of children models.
-
+Our prototype system, TimeTravel, is implemented {\em inside} the PostgreSQL database engine. For each time series, our proposed system builds a separate model index. The underlying  time series is stored as an array indexed by time.
 Figure~\ref{fig:arch} highlights the building HMI module and HMI data structure and Query and maintenance modules of TimeTravel system. These components can be described as follow:
 
 {\em Building HMI} (Figure~\ref{fig:arch}a) First, we  build a HMI  using inputs: (1) Time series, (2)  seasonality periods and (3) errors, and output a compatible \LN.  
@@ -118,9 +116,11 @@ Then, we reduce the required storage space for \LNs by finding similar models  b
 The similarity on models instead of the original time series can be computed more efficiently. 
 
 {\em \HMI} (Figure~\ref{fig:arch}b)
+  A model  at level $l$ has zero or more children segments at level $l-1$.  Each child model improves its parent's representation of the underlying time series by creating one (or more)  models over a sub range of the timeseries. For example in Figure~\ref{fig:exampletree} the timeseries is divide into two models over [1,17] and [18,50] respectively. To build a child model, we may either use  (a)~sub range of the time series, or (b)~sub range of the error of the parent model. We denote the latter models as $\Delta$Models. 
+Figure~\ref{fig:exampletree} illustrates the hierarchical model index for the time series shown in Figure~\ref{fig:example}. Note that the error for models $M_1$ and $M_2$ is greater than zero, because we use only on seasonality component. Also, the error of the root model is greater than both of children models.
+A time series can have an arbitrary number of seasonality periods (e.g., the shown time series exhibits two seasonality periods $P_1$ and $P_2$).  The timeseries shown in Figure~\ref{fig:example} has seasonality periods of 10 and 4. The \LNs is presented in the top center of Figure~\ref{fig:arch}.
 The HMI has one root node for the entire time series, As we traverse down the HMI the error decreases. 
- The original time series is stored as an array indexed by time.
-For query optimization, we store statistics about the index in the system catalog. Specifically, we store the number of model segments, their average size, and the maximum error and minimum confidence for each level. These statistics are needed to estimate the expected cost for the query.
+ For query optimization, we store statistics about the index in the system catalog. Specifically, we store the number of model segments, their average size, and the maximum error and minimum confidence for each level. These statistics are needed to estimate the expected cost for the query.
 
 {\em Query Processing Module.}(Figure~\ref{fig:arch}c) We extend the query processor and optimizer of PostgreSQL to support approximate queries over future and past data and exact queries over the past data. 
 To answer historical queries, it traverses down the model index. The Forecasting module is used to retrieve the predicted the time series.
