@@ -1,0 +1,39 @@
+Hi Mohamed
+ 
+Some comments.
+ 
+In general, the paper would benefit a lot from a running example, introduced as a new Section II or a new subsection in Sec II and used to exemplify in Sec III and IV (and later).
+ 
+The abstract should mention forecasting and stress more clearly that we handle BOTH forecasted and historical values using (the same) models.
+ 
+For the intro, there should be a shorter summary of the main novel contributions
+ 
+The intro discusses (some) related work in a lot of detail so why also have a Related Work section. Either all related work should be in Sec I or the discussion should be more highlevel and the detailed discussion moved to Sec VI.
+ 
+Sec II looks a lot like the demo paper, right ?
+ 
+Sec III:
+ 
+L 1: “necessary definitions” sounds strange
+ 
+L 2: “assume a mathematical model” + next sentences. This is somewhat imprecisely formulated, try to be more precise
+ 
+After def 3: “..meet all error guarantees..” is too vague
+ 
+The problem definition only considers ONE level of models as far as I read it, and not the hierarchical set of models that we actually build. It should-
+ 
+The meaning of the formula in Def 2 is unclear, i.e., what do the three cases mean ?
+Using “t” for trend is not good as it can be misunderstood to mean time, I think “tr” is better
+Def 2 defines a TYPE of function, but not a real function, I think we should also say that a model M is a function of t (time), i.e., M(t)=…
+ 
+Sec III should state clearly (with cites) which type of model this is
+ 
+Sec III also needs to explicitly handle the fact that our time series is not fixed, but evolving over time (we don’t have a “last”
+ 
+IV.A: “..which meets this requirements for the entire timeseries.” What is “this requirements”
+ 
+There are a number of typos in the text and code
+ 
+IV.B The sentence in line 4 is not completed
+ 
+The explanations in Sec IV are generally ok but would benefit a lot from a running example and associated figures
