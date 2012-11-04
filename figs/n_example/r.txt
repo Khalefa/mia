@@ -1,0 +1,36 @@
+y<-0
+p1<-75
+p2<--15
+t<- 9
+n<-50
+for(i in c(1:t)) y[i]=p1*i
+for(i in c((t+1):n)) y[i]=y[t]+p2*(i-t-1)
+x <- 1:n;
+plot(x,y);
+m.t<-bezierCurve(x,y,n)$y
+points(m.t, type="l", col="red")
+
+s1<-c(3378.820205,1105.119863,528.5970320,0,876.6752283,3876.537671,7732.304224,8167.391553,9082.164954,7061.226027)
+m.s1<-bezierCurve(c(1:length(s1)),s1)$y
+m.s1<-rep(m.s1,n/length(s1))
+plot(x,rep(s1,n/length(s1)));
+points(m.s1, type="l", col="blue")
+
+
+s2<-c(825.3333333,3000,10238.08333,1200,1000)
+m.s2<-rep(s2,n/length(s2))
+
+
+weights<-c(0.95,0.05*2,0.08*2)
+for(i in c(1:n)) {
+m.t[i]<-m.t[i]*weights[1]
+m.s1[i]<-m.s1[i]*weights[2]
+m.s2[i]<-m.s2[i]*weights[3]
+
+}
+m.sum<-m.t/3+m.s1/3+m.s2/3
+
+plot(m.sum,type="l",col="blue")
+points(m.t,type="l",col="red")
+points(m.s1,type="l",col="green")
+points(m.s2,type="l")

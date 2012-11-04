@@ -15,12 +15,12 @@
 \newtheorem{mydef}{Definition}
 
 
-\title{TimeTravel:Model-based Integration of Past \& Future Data} \author{{Mohamed E. Khalefa{\small $~^{\#1}$}, Ulrike Fischer{\small $~^{*2}$}, Torben Bach Pedersen{\small $~^{\#3}$} }%
+\title{TimeTravel:Model-based Integration of Past \& Future Data} \author{{Mohamed E. Khalefa{\small $~^{\#1}$}, Ulrike Fischer{\small $~^{*2}$}, Torben Bach Pedersen{\small $~^{\#3}$} }
 \vspace{1.6mm}\\
 \fontsize{10}{10}\selectfont\itshape
 $~^{\#}$Department of Computer Science, Aalborg University, 9220 Aalborg, Denmark\\
 \fontsize{9}{9}\selectfont\ttfamily\upshape
-$~^{1}$mohamed@cs.aau.dk\\
+$~^{1}$mohamed@cs.aau.dk, 
 $~^{3}$tbp@cs.aau.dk
 \vspace{1.2mm}\\
 \fontsize{10}{10}\selectfont\rmfamily\itshape
@@ -33,7 +33,7 @@ $~^{2}$ulrike.fischer@tu-dresden.de
 \begin{abstract}
 %With the increase size of timeseries data (e.g., sensors and  smart-meters), it becomes more important to efficiently processing queries.
 
-Seamless integration for  past and (forecasted) future values of time series is crucial for advanced application domains. For example, in energy domain, it is important to balance the production and consumption electricity. Typically, for these applications, it is  more useful to provide  immediate approximate answers for queries than  later exact answers. For future data points, we can only compute approximate answers.
+Seamless integration for  past and (forecasted) future values of time series is crucial(critical) for advanced application domains. For example, consider balancing  production and consumption of electricity, in a smart-grid application.  In such scenario, it is  more useful to provide  immediate approximate answers for queries than  later exact answers. Also, For future data points, we can only compute approximate answers.
 The main idea behind in our proposed system, TimeTravel, is to compactly represent time series as models.
 By using models, we can answer queries approximately on past and future data with error guarantees (absolute error and confidence) one order of magnitude faster than when accessing the time series directly. 
 In addition, it efficiently supports exact historical queries by only accessing relevant portions of the time series.  This is unlike existing approaches, which access the entire time series to exactly answer the query.
