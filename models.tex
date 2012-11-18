@@ -13,6 +13,7 @@
 %\usepackage{algorithmic}
 \usepackage{amssymb}
 \newtheorem{mydef}{Definition}
+%AlexCSEActive
 
 
 \title{TimeTravel:Model-based Integration of Past \& Future Data} \author{{Mohamed E. Khalefa{\small $~^{\#1}$}, Ulrike Fischer{\small $~^{*2}$}, Torben Bach Pedersen{\small $~^{\#3}$} }
@@ -33,40 +34,46 @@ $~^{2}$ulrike.fischer@tu-dresden.de
 \begin{abstract}
 %With the increase size of timeseries data (e.g., sensors and  smart-meters), it becomes more important to efficiently processing queries.
 
-Seamless integration for  past and (forecasted) future values of time series is crucial(critical) for advanced application domains. For example, consider balancing  production and consumption of electricity, in a smart-grid application.  In such scenario, it is  more useful to provide  immediate approximate answers for queries than  later exact answers. Also, For future data points, we can only compute approximate answers.
-The main idea behind in our proposed system, TimeTravel, is to compactly represent time series as models.
-By using models, we can answer queries approximately on past and future data with error guarantees (absolute error and confidence) one order of magnitude faster than when accessing the time series directly. 
-In addition, it efficiently supports exact historical queries by only accessing relevant portions of the time series.  This is unlike existing approaches, which access the entire time series to exactly answer the query.
+%Seamless integration for past and future values of time series is crucial for advanced applications. For example, in energy domain, it is important to balance the production and consumption of electricity by estimating the  which leads leading to . Specifically, in a typical grid application, the expected load within each sub-network need to be computed, and interestingly, with renewable energy sources (e.g., solar and wind), the expected produced energy needs to be estimated.  The difference is supplied by conventional energy sources.   For this application, it is  more useful to provide  immediate approximate answers for queries than  later exact answers. Because  conventional sources (e.g., nuclear power) could not deliver energy instantaneously. %(other scenario where computing history is important for foreacasting)
 
-To realize this system,  we propose a novel \LNs  structure. As real-world time series usually exhibits seasonal behavior, models in this index incorporate seasonality.
-To construct  a \LN, the user specifies seasonality period, error guarantees levels, and a statistical forecast method.  
-As time proceeds, the system incrementally updates the index and utilizes it to answer approximate and exact queries.
-TimeTravel is implemented into PostgreSQL, thus achieving complete user transparency at the query level.  
+Seamless integration for past and future values of time series is crucial for advanced applications. For example, in energy domain, it is important to balance the production and consumption of electricity by estimating the expected load within each sub-network, and interestingly, with renewable energy sources (e.g., solar and wind). The difference is supplied by conventional energy sources.   For this application, it is  more useful to provide  immediate approximate answers for queries than  later exact answers. Because  conventional sources (e.g., nuclear power) could not deliver energy instantaneously. %(other scenario where computing history is important for foreacasting)
 
-Extensive experimental analysis show  to illustrate the speed up for approximate and exact queries  with varying the error guarantees.
+In this paper, we present our proposed system, TimeTravel, which answers (1)~approximate queries on past and future data within error guarantees, and (2) exact historical queries.
+TimeTravel compactly represents time series as models. As models are substantially smaller than the original time series, they  can be used to compute approximate queries one order of magnitude faster than when accessing the time series directly. In addition, model can be used as an access method over the underlying time series, this way we can solve we can access the relevant portions. These models are organized in a novel index denoted as \LNs. Extensive experimental analysis show  the speed up for approximate and exact queries  with varying the error guarantees.
+
+% faster than directly scanning it. These models are organized in a novel index denoted as \LNs  index. 
+
+%In addition, it efficiently supports exact historical queries by only accessing relevant portions of the time series.  This is unlike existing approaches, which access the entire time series to exactly answer the query. Moreover, we propose a novel \LNs  structure to organize these models.  
+
+%%To realize this system,  we propose a novel \LNs  structure. As real-world time series usually exhibits seasonal behavior, models in this index incorporate seasonality.
+%To construct  a \LN, the user specifies seasonality period, error guarantees levels, and a statistical forecast method.  
+%As time proceeds, the system incrementally updates the index and utilizes it to answer approximate and exact queries.
+%TimeTravel is implemented into PostgreSQL, thus achieving complete user transparency at the query level.  
+
+%Extensive experimental analysis show  to illustrate the speed up for approximate and exact queries  with varying the error guarantees.
 \end{abstract}
 
 \section{Introduction}
   \label{sec:intro}
 Time series can be encountered in many applications, including financial (e.g., stock price~\cite{stock}) and scientific database (e.g.,
-sensor data for weather information~\cite{arimaEng} or environmental data).
-Time series usually exhibit one or more seasonal behaviors. For example, power consumption rises in winter (e.g., heating) and during the day and falls in the summer and at night. Modeling has been extensively used in different applications including forecasting, estimating, approximating, neuroscience, and rendering graphics for computer games.  Several  forecasting methods have been proposed for different applications such as neural network  average for stock trading~\cite{stock},  effect-graph for foreign politics~\cite{iran} and ARIMA~\cite{tBOX76a} in energy domain~\cite{arimaEng}.  Forecasting is essential for  decision making applications (e.g., planning of production batches). To model time series, many techniques have been proposed in the literature including Piecewise Aggregate Approximation (PAA), Adaptive Piecewise Constant Approximation (APCA), Chebyshev polynomials (CHEB), Symbolic Aggregate approXimation (SAX), Indexable Piecewise Linear Approximation (IPLA).  These approaches mainly address mining and similarity  queries.  A comparative study for their performance for various time series in presented in \cite{DTPE08}. IPLA slightly outperforms other methods in lower bounding for DTW distance function which is mainly used for similarity queries.
+sensor data for weather information~\cite{arimaEng} or other environmental data).
+Typically, in real application, Time series  exhibit at least one  seasonal behaviors. For example, household power consumption rises in winter (e.g., heating) and during the day and falls in the summer and at night. i.e, it exposes a yearly and daily seasonaliy periods. Modeling has been extensively used in different applications including forecasting, estimating, approximating, neuroscience, and rendering graphics for computer games.  Several  forecasting methods have been proposed for different applications such as neural network  average for stock trading~\cite{stock},  effect-graph for foreign politics~\cite{iran} and ARIMA~\cite{tBOX76a} in energy domain~\cite{arimaEng}.  Forecasting is essential for  decision making applications (e.g., planning of production batches). To model time series, many techniques have been proposed in the literature including Piecewise Aggregate Approximation (PAA), Adaptive Piecewise Constant Approximation (APCA), Chebyshev polynomials (CHEB), Symbolic Aggregate approXimation (SAX), Indexable Piecewise Linear Approximation (IPLA).  These approaches mainly address mining and similarity  queries.  A comparative study for their performance for various time series in presented in \cite{DTPE08}. IPLA slightly outperforms other methods in lower bounding for DTW distance function which is mainly used for similarity queries.
 
 Traditionally, a time series  can be decomposed into a trend component, a seasonal component, and a local (i.e., stationary) component~\cite{Decompose}. 
-Statistical  forecasting methods (e.g., ARIMA~\cite{tBOX76a}) use these components  to accurately compute forecasted values. For our purpose, we abstract a forecast method as a function which takes forecast parameters and states (i.e., past values) and outputs future values. We use this decomposition to represent the time series over the past and the future.
+Statistical  forecasting methods (e.g., ARIMA~\cite{tBOX76a}) use these components  to accurately compute forecasted values. For our purpose, we abstract a forecast method as a function of forecast parameters and states (i.e., past values) and outputs future values. We use this decomposition to represent the time series over the past and the future.
 Consider a motivating example from the energy domain: the power grid operator wants to investigate when the power consumption exceeded (or will exceed) a certain threshold (e.g., 90\%) of the network  over the previous and upcoming weeks. Several approaches (e.g.,\cite{AG99} and \cite{KML10}) use error and confidence to speedup the query execution. Consider for our example, an approximate answer with 1\% error  and 95\% confidence is adequate. A naive approach would scan the data points over the previous week, optimize parameters for a forecast method, and predict the time series for the next week. Finally, the query discards values that are lower than the specified threshold. Our proposed system performs this more intelligently, as will be explain next. 
 
 %Because forecast methods could not be used to store historical data, we  model historical data separately.
 
 Throughout the paper, we use our motivating example shown in Figure~\ref{fig:example}. 
-Figure~\ref{fig:example}a gives 50 values which is based on  real world power consumption in UK grid. We can decompose this time series into three components (two seasonal  and one trend components)  as shown in Figure~\ref{fig:example}b. The seasonal components have periods of 10 and 4 cycles.
-By storing the decomposed complements instead of the original timeseries,  we reduce the storage requirements. In the toy example, instead of storing the 50 values of the original time series, we need only  store 19 values to exactly represent the time series (i.e., with 0\% error and 100\% confidence)( 5 values for trend and 10 and 4 seasonality periods) which corresponds a compression ratio of 42\%. Moreover, we can forecast the time series by exaggerating the decomposed components.
+Figure~\ref{fig:example}a gives 50 values which is based on real-world household power consumption in UK.  This time series consists of three components (two seasonal  and one trend components)  as shown in Figure~\ref{fig:example}b. The seasonal components have periods of 10 and 5 cycles, respectively.
+By storing the complements separately instead of the original timeseries,  we reduce the storage requirements. In the toy example, instead of storing the 50 values of the original time series, we need only  store 19 values to exactly represent the time series (i.e., with 0\% error and 100\% confidence)( four values for trend and 10 and five seasonality periods) which corresponds a compression ratio of 42\%. Moreover, we can forecast the time series by exaggerating the decomposed components.
 \begin{figure*}[th]
 \center
 \subfigure{
-\includegraphics[width=2.0in]{figs/example2_1.pdf}}
+\includegraphics[width=2.0in]{figs/example.eps}}
 \subfigure{
-\includegraphics[width=2.0in]{figs/example2_2.pdf}}
+\includegraphics[width=2.0in]{figs/example_compoments.eps}}
 \caption{Motivating Example}
 \label{fig:example}
 \end{figure*} 
@@ -92,18 +99,18 @@ Over time, {\it new} values are added to the time series, and we incrementally u
 In the rest of this paper, first we formalize the problem statements in Section~\ref{sec:form}.   Section~\ref{sec:overview} provides an overview of the our proposed system. Section~\ref{sec:details} describes building the hierarchical model index, and  compression Section~\ref{sec:query} gives the details of query optimization and processing for approximate and exact queries.  The  related work is presented in Section~\ref{sec:related}. Section~\ref{sec:experiments} gives  our experimental analysis for our proposed system   using  both real-world time series data and synthetic data.
 
 %\section{Running Example}
-\begin{figure*}[th]
-\center
-\includegraphics[width=6in]{figs/overview3.pdf}
-\caption{TimeTravel System Overview}
-\label{fig:arch}
-\end{figure*} 
-\begin{figure}[th]
-\center
-\includegraphics[width=3in]{figs/example_tree.pdf}
-\caption{HMI for the motivating example}
-\label{fig:exampletree}
-\end{figure} 
+%\begin{figure*}[th]
+%\center
+%\includegraphics[width=6in]{figs/overview3.pdf}
+%\caption{TimeTravel System Overview}
+%\label{fig:arch}
+%\end{figure*} 
+%\begin{figure}[th]
+%\center
+%\includegraphics[width=3in]{figs/example_tree.pdf}
+%\caption{HMI for the motivating example}
+%\label{fig:exampletree}
+%\end{figure} 
 
 
 \section{TimeTravel System Overview}
@@ -271,12 +278,12 @@ Finally, we return the computed model.
 We examine two  trend representations based on means and linear regressions. The pseudo code is presented in Algorithm~\ref{alg:t}. The algorithm takes two inputs: (1) the trend component and (2) the length of the seasonal period. Initially, if the seasonality period is greater than zero,  we present the trend as a vector of  values over each seasonal period. (Lines~\ref{algt:ms}-\ref{algt:me} in Algorithm~\ref{alg:t}) 
 We use  the linear Chebyshev regression method~\cite{cheb} to approximate the trend component $T$. (Lines~\ref{algt:cheb} in Algorithm~\ref{alg:t}) The Chebyshev regression method is efficiently computable and 
 minimizes the largest deviation (i.e. error) from the original curve (i.e., time series) among the polynomials of the same order. Finally, the algorithm returns possible representations for the trend components. (Line~\ref{algt:r} in Algorithm~\ref{alg:t})
-\begin{figure}
-\center
-\includegraphics[width=3.0in]{figs/hints.pdf}
-\caption{Possible Hints for Seasonal Hierarchy}
-\label{fig:hints}
-\end{figure}
+%\begin{figure}
+%\center
+%\includegraphics[width=3.0in]{figs/hints.pdf}
+%\caption{Possible Hints for Seasonal Hierarchy}
+%\label{fig:hints}
+%\end{figure}
 
 {\bf  Processing Seasonality Component}
 \label{sec:seasonal}
@@ -497,58 +504,58 @@ similarity not
 
 %Last, we will show the query plan for a set of approximate and exact queries given by the user.  For each query, we show the tradeoff between query cost and the error guarantee.
 \section{Experiments}
-\begin{figure*}
-\center
-\subfigure{
-\includegraphics[width=1.5in]{figs/expr/pdf/g_scal_l1i1.pdf}}
-\subfigure{
-\includegraphics[width=1.5in]{figs/expr/pdf/g_scal_l1i2.pdf}}
-\subfigure{
-\includegraphics[width=1.5in]{figs/expr/pdf/g_scal_l1i10.pdf}}
-\subfigure{
-\includegraphics[width=1.5in]{figs/expr/pdf/g_scal_l0i100.pdf}}
+%\begin{figure*}
+%\center
+%\subfigure{
+%\includegraphics[width=1.5in]{figs/expr/pdf/g_scal_l1i1.pdf}}
+%\subfigure{
+%\includegraphics[width=1.5in]{figs/expr/pdf/g_scal_l1i2.pdf}}
+%\subfigure{
+%\includegraphics[width=1.5in]{figs/expr/pdf/g_scal_l1i10.pdf}}
+%\subfigure{
+%\includegraphics[width=1.5in]{figs/expr/pdf/g_scal_l0i100.pdf}}
 
-\caption{Scalability}
+%\caption{Scalability}
 
-\end{figure*}
-\begin{figure*}
-\center
-\subfigure{
-\includegraphics[width=2.0in]{figs/expr/pdf/g_layers_i2.pdf}}
-\subfigure{
-\includegraphics[width=2.0in]{figs/expr/pdf/g_layers_i10.pdf}}
-\subfigure{
-\includegraphics[width=2.0in]{figs/expr/pdf/g_layers_i100.pdf}}
-\caption{Levels in HMI}
+%\end{figure*}
+%\begin{figure*}
+%\center
+%\subfigure{
+%\includegraphics[width=2.0in]{figs/expr/pdf/g_layers_i2.pdf}}
+%\subfigure{
+%\includegraphics[width=2.0in]{figs/expr/pdf/g_layers_i10.pdf}}
+%\subfigure{
+%\includegraphics[width=2.0in]{figs/expr/pdf/g_layers_i100.pdf}}
+%\caption{Levels in HMI}
 
-\end{figure*}
+%\end{figure*}
 
-\begin{figure*}
-\center
-\subfigure{
-\includegraphics[width=2.0in]{figs/expr/pdf/g_interval_l0.pdf}}
-\subfigure{
-\includegraphics[width=2.0in]{figs/expr/pdf/g_interval_l1.pdf}}
-\subfigure{
-\includegraphics[width=2.0in]{figs/expr/pdf/g_interval_l2.pdf}}
-\caption{Effect of Intervals}
+%\begin{figure*}
+%\center
+%\subfigure{
+%\includegraphics[width=2.0in]{figs/expr/pdf/g_interval_l0.pdf}}
+%\subfigure{
+%\includegraphics[width=2.0in]{figs/expr/pdf/g_interval_l1.pdf}}
+%\subfigure{
+%\includegraphics[width=2.0in]{figs/expr/pdf/g_interval_l2.pdf}}
+%\caption{Effect of Intervals}
 
-\end{figure*}
+%\end{figure*}
 
-\begin{figure*}
-\center
-\subfigure{
-\includegraphics[width=1.5in]{figs/expr/pdf/g_forecast_MA_l0.pdf}}
-\subfigure{
-\includegraphics[width=1.5in]{figs/expr/pdf/g_forecast_MA_l1.pdf}}
-\subfigure{
-\includegraphics[width=1.5in]{figs/expr/pdf/g_forecast_AA.pdf}}
-\subfigure{
-\includegraphics[width=1.5in]{figs/expr/pdf/g_forecast.pdf}}
+%\begin{figure*}
+%\center
+%\subfigure{
+%\includegraphics[width=1.5in]{figs/expr/pdf/g_forecast_MA_l0.pdf}}
+%\subfigure{
+%\includegraphics[width=1.5in]{figs/expr/pdf/g_forecast_MA_l1.pdf}}
+%\subfigure{
+%\includegraphics[width=1.5in]{figs/expr/pdf/g_forecast_AA.pdf}}
+%\subfigure{
+%\includegraphics[width=1.5in]{figs/expr/pdf/g_forecast.pdf}}
 
-\caption{Forecast}
+%\caption{Forecast}
 
-\end{figure*}
+%\end{figure*}
 
 
 

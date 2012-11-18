@@ -18,21 +18,21 @@ MaxPos.x=-8
 MaxPos.y=-30
 NormalPos.left=0
 NormalPos.top=0
-NormalPos.right=1044
-NormalPos.bottom=221
+NormalPos.right=442
+NormalPos.bottom=226
 Class=CLatexEdit
 Document=models.tex
 
 [Frame0_Row0]
-cyCur=521
+cyCur=367
 cyMin=10
 
 [Frame0_Col0]
-cxCur=1139
+cxCur=1337
 cxMin=10
 
 [Frame0_View0,0]
-Cursor.row=35
-Cursor.column=375
-TopSubLine=33
+Cursor.row=37
+Cursor.column=323
+TopSubLine=39
 
