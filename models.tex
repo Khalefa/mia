@@ -13,7 +13,6 @@
 %\usepackage{algorithmic}
 \usepackage{amssymb}
 \newtheorem{mydef}{Definition}
-%AlexCSEActive
 
 
 \title{TimeTravel:Model-based Integration of Past \& Future Data} \author{{Mohamed E. Khalefa{\small $~^{\#1}$}, Ulrike Fischer{\small $~^{*2}$}, Torben Bach Pedersen{\small $~^{\#3}$} }
@@ -35,11 +34,12 @@ $~^{2}$ulrike.fischer@tu-dresden.de
 %With the increase size of timeseries data (e.g., sensors and  smart-meters), it becomes more important to efficiently processing queries.
 
 %Seamless integration for past and future values of time series is crucial for advanced applications. For example, in energy domain, it is important to balance the production and consumption of electricity by estimating the  which leads leading to . Specifically, in a typical grid application, the expected load within each sub-network need to be computed, and interestingly, with renewable energy sources (e.g., solar and wind), the expected produced energy needs to be estimated.  The difference is supplied by conventional energy sources.   For this application, it is  more useful to provide  immediate approximate answers for queries than  later exact answers. Because  conventional sources (e.g., nuclear power) could not deliver energy instantaneously. %(other scenario where computing history is important for foreacasting)
+% The difference between the estimated production and consumption is supplied by conventional energy sources.
 
-Seamless integration for past and future values of time series is crucial for advanced applications. For example, in energy domain, it is important to balance the production and consumption of electricity by estimating the expected load within each sub-network, and interestingly, with renewable energy sources (e.g., solar and wind). The difference is supplied by conventional energy sources.   For this application, it is  more useful to provide  immediate approximate answers for queries than  later exact answers. Because  conventional sources (e.g., nuclear power) could not deliver energy instantaneously. %(other scenario where computing history is important for foreacasting)
+Seamless integration for past and future values of time series is crucial for advanced applications. For example, in the energy domain, it is important to  balance the production and consumption of electricity. Therefore,  the expected load on  each sub-network is estimated. Interestingly, with renewable energy sources (e.g., solar and wind), the expected production needs to be computed. For this  application, it is  more useful to provide  immediate approximate answers for queries than  later exact answers.% Because  conventional sources (e.g., nuclear power) could not deliver energy instantaneously. %(other scenario where computing history is important for foreacasting)
 
 In this paper, we present our proposed system, TimeTravel, which answers (1)~approximate queries on past and future data within error guarantees, and (2) exact historical queries.
-TimeTravel compactly represents time series as models. As models are substantially smaller than the original time series, they  can be used to compute approximate queries one order of magnitude faster than when accessing the time series directly. In addition, model can be used as an access method over the underlying time series, this way we can solve we can access the relevant portions. These models are organized in a novel index denoted as \LNs. Extensive experimental analysis show  the speed up for approximate and exact queries  with varying the error guarantees.
+TimeTravel compactly represents time series as models. As models are substantially smaller than the original time series, our proposed framework  compute approximate queries one order of magnitude faster than  accessing the time series directly. In addition, models are used as an access method over the underlying time series, this way we can solve we can access the relevant portions. These models are organized in a novel index denoted as \LNs. Extensive experimental analysis show  the speed up for approximate and exact queries  with varying the error guarantees.
 
 % faster than directly scanning it. These models are organized in a novel index denoted as \LNs  index. 
 
@@ -55,19 +55,22 @@ TimeTravel compactly represents time series as models. As models are substantial
 
 \section{Introduction}
   \label{sec:intro}
-Time series can be encountered in many applications, including financial (e.g., stock price~\cite{stock}) and scientific database (e.g.,
+Time series are encountered in many applications, including financial (e.g., stock price~\cite{stock}) and scientific database (e.g.,
 sensor data for weather information~\cite{arimaEng} or other environmental data).
-Typically, in real application, Time series  exhibit at least one  seasonal behaviors. For example, household power consumption rises in winter (e.g., heating) and during the day and falls in the summer and at night. i.e, it exposes a yearly and daily seasonaliy periods. Modeling has been extensively used in different applications including forecasting, estimating, approximating, neuroscience, and rendering graphics for computer games.  Several  forecasting methods have been proposed for different applications such as neural network  average for stock trading~\cite{stock},  effect-graph for foreign politics~\cite{iran} and ARIMA~\cite{tBOX76a} in energy domain~\cite{arimaEng}.  Forecasting is essential for  decision making applications (e.g., planning of production batches). To model time series, many techniques have been proposed in the literature including Piecewise Aggregate Approximation (PAA), Adaptive Piecewise Constant Approximation (APCA), Chebyshev polynomials (CHEB), Symbolic Aggregate approXimation (SAX), Indexable Piecewise Linear Approximation (IPLA).  These approaches mainly address mining and similarity  queries.  A comparative study for their performance for various time series in presented in \cite{DTPE08}. IPLA slightly outperforms other methods in lower bounding for DTW distance function which is mainly used for similarity queries.
+Typically, in real applications, time series  exhibit at least one  seasonal behaviors. For instance, household power consumption rises in winter (e.g., heating) and during the day and falls in the summer and at night. i.e, it exposes a yearly and daily seasonality periods. Modeling has been extensively used in different applications including forecasting, estimating, approximating, neuroscience, and rendering graphics for computer games.  Several  forecasting methods have been proposed for different applications such as neural network  for stock trading~\cite{stock},  effect-graph for foreign politics~\cite{iran} and ARIMA~\cite{tBOX76a} in energy domain~\cite{arimaEng}.  Forecasting is essential for  decision making applications (e.g., planning of production batches). 
 
+%These approaches mainly address mining and similarity  queries.
+To model time series, many techniques have been proposed in the literature including Piecewise Aggregate Approximation (PAA), Adaptive Piecewise Constant Approximation (APCA), Chebyshev polynomials (CHEB), Symbolic Aggregate approXimation (SAX), Indexable Piecewise Linear Approximation (IPLA).    A comparative performance study for mining and similarity  queries is presented in \cite{DTPE08}. IPLA slightly outperforms other methods in lower bounding for DTW distance function which is mainly used for similarity queries. 
 Traditionally, a time series  can be decomposed into a trend component, a seasonal component, and a local (i.e., stationary) component~\cite{Decompose}. 
-Statistical  forecasting methods (e.g., ARIMA~\cite{tBOX76a}) use these components  to accurately compute forecasted values. For our purpose, we abstract a forecast method as a function of forecast parameters and states (i.e., past values) and outputs future values. We use this decomposition to represent the time series over the past and the future.
+Statistical  forecasting methods (e.g., ARIMA~\cite{tBOX76a}) use these components  to accurately compute forecast values. For our purpose, we abstract a forecast method as a function of forecast parameters and states (i.e., past values) and outputs future values. We use this decomposition to represent the time series over the past and the future.
 Consider a motivating example from the energy domain: the power grid operator wants to investigate when the power consumption exceeded (or will exceed) a certain threshold (e.g., 90\%) of the network  over the previous and upcoming weeks. Several approaches (e.g.,\cite{AG99} and \cite{KML10}) use error and confidence to speedup the query execution. Consider for our example, an approximate answer with 1\% error  and 95\% confidence is adequate. A naive approach would scan the data points over the previous week, optimize parameters for a forecast method, and predict the time series for the next week. Finally, the query discards values that are lower than the specified threshold. Our proposed system performs this more intelligently, as will be explain next. 
 
 %Because forecast methods could not be used to store historical data, we  model historical data separately.
+%These seasonal components have periods of 10 and 5 cycles, respectively.
 
 Throughout the paper, we use our motivating example shown in Figure~\ref{fig:example}. 
-Figure~\ref{fig:example}a gives 50 values which is based on real-world household power consumption in UK.  This time series consists of three components (two seasonal  and one trend components)  as shown in Figure~\ref{fig:example}b. The seasonal components have periods of 10 and 5 cycles, respectively.
-By storing the complements separately instead of the original timeseries,  we reduce the storage requirements. In the toy example, instead of storing the 50 values of the original time series, we need only  store 19 values to exactly represent the time series (i.e., with 0\% error and 100\% confidence)( four values for trend and 10 and five seasonality periods) which corresponds a compression ratio of 42\%. Moreover, we can forecast the time series by exaggerating the decomposed components.
+Figure~\ref{fig:example}a gives 50 values which is based on real-world household power consumption in UK.  This time series can be decomposed to three components: two seasonal with period length of 5 and 10  and one trend components, the decomposed components are  shown in Figure~\ref{fig:example}b. 
+By storing the complements instead of the original timeseries,  we can greatly reduce the storage requirements. In this toy example, instead of storing  50 values of the original time series, we need only to store 19 values to exactly represent the time series (i.e., with 0\% error and 100\% confidence). This can be acoomplished by storing  four trends values and  10 and five seasonality periods. This corresponds to a compression ratio of 42\%. Moreover, we can easily forecast the time series by exaggerating the decomposed components.
 \begin{figure*}[th]
 \center
 \subfigure{
@@ -196,6 +199,8 @@ In this section, we present building and compressing the  Hierarchical Model Ind
  
 %  To build the \LN, we  compute the trend $t$, seasonal $s$, and remainder $r$ components for time series $x$. Then, we process each component  as described  in Sections~\ref{sec:nonseasonal}-\ref{sec:error}. We greedy choose the  presentation of model that maximizes the  heuristic $H$. If the LN does not comply with all error guarantee levels,  we  recursively build  models over sub intervals.
  \subsection{Building the Hierarchical Model Index}
+ Add discussion for top down vs bottom up approaches
+ 
 We now describe constructing a \LNs over the time series. The pseudo code is given in Algorithm~\ref{alg:him}. The algorithm takes two inputs: (1)~timeseries $TS$ with seasonal periods hierarchy (we use user hints for seasonality period) and (2)~a set of error guarantees, $error_g$, represented as pair of error and confidence. 
 The algorithm finds a hierirehcal model index for the given timeseries such that for each error guarantee, there exists a model (or more) in the index which meets this requirements for the entire timeseries.
 
@@ -595,7 +600,9 @@ Query done paritally
 % The following two commands are all you need in the
 % initial runs of your .tex file to
 % produce the bibliography for the citations in your paper.
+%\vspace{-10mm}
 \bibliographystyle{abbrv}
+\scriptsize
 \bibliography{demo} 
 \end{document}
 
