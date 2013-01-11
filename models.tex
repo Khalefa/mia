@@ -1,4 +1,3 @@
-%\documentclass[10pt,conference,letterpaper]{IEEEtran}
 \documentclass{sigmod}
 \usepackage{times,amsmath,epsfig}
 \usepackage{algorithm}
@@ -8,14 +7,13 @@
 \newcommand{\LNs}{hierarchical model index }
 \newcommand{\HMI}{Hierarchical Model Index }
 \newcommand{\sn}{index}
+\newcommand{\pg}{PostgreSQL}
 \usepackage{graphicx}
-%\usepackage{algorithm}
-%\usepackage{algorithmic}
 \usepackage{amssymb}
 \newtheorem{mydef}{Definition}
 
-
-\title{TimeTravel:Model-based Integration of Past \& Future Data} \author{{Mohamed E. Khalefa{\small $~^{\#1}$}, Ulrike Fischer{\small $~^{*2}$}, Torben Bach Pedersen{\small $~^{\#3}$} }
+\title{TimeTravel:Model-based Integration of Past \& Future Data} 
+\author{{Mohamed E. Khalefa{\small $~^{\#1}$}, Ulrike Fischer{\small $~^{*2}$}, Torben Bach Pedersen{\small $~^{\#3}$} }
 \vspace{1.6mm}\\
 \fontsize{10}{10}\selectfont\itshape
 $~^{\#}$Department of Computer Science, Aalborg University, 9220 Aalborg, Denmark\\
@@ -31,26 +29,11 @@ $~^{2}$ulrike.fischer@tu-dresden.de
 \begin{document}
 \maketitle
 \begin{abstract}
-%With the increase size of timeseries data (e.g., sensors and  smart-meters), it becomes more important to efficiently processing queries.
 
-%Seamless integration for past and future values of time series is crucial for advanced applications. For example, in energy domain, it is important to balance the production and consumption of electricity by estimating the  which leads leading to . Specifically, in a typical grid application, the expected load within each sub-network need to be computed, and interestingly, with renewable energy sources (e.g., solar and wind), the expected produced energy needs to be estimated.  The difference is supplied by conventional energy sources.   For this application, it is  more useful to provide  immediate approximate answers for queries than  later exact answers. Because  conventional sources (e.g., nuclear power) could not deliver energy instantaneously. %(other scenario where computing history is important for foreacasting)
-% The difference between the estimated production and consumption is supplied by conventional energy sources.
-
-Seamless integration for past and future values of time series is crucial for advanced applications. For example, in the energy domain, it is important to  balance the production and consumption of electricity. Therefore,  the expected load on  each sub-network is estimated. Interestingly, with renewable energy sources (e.g., solar and wind), the expected production needs to be computed. For this  application, it is  more useful to provide  immediate approximate answers for queries than  later exact answers.% Because  conventional sources (e.g., nuclear power) could not deliver energy instantaneously. %(other scenario where computing history is important for foreacasting)
+Seamless integration for past and future values of time series is crucial for advanced applications. For example, in the energy domain, it is important to  balance the production and consumption of electricity. Therefore,  the expected load on  each sub-network needs to be estimated. Interestingly, with renewable energy sources (e.g., solar and wind), the expected production needs to be computed. For this  application, it is  more useful to provide  immediate approximate answers for queries than  later exact answers.
 
 In this paper, we present our proposed system, TimeTravel, which answers (1)~approximate queries on past and future data within error guarantees, and (2) exact historical queries.
 TimeTravel compactly represents time series as models. As models are substantially smaller than the original time series, our proposed framework  compute approximate queries one order of magnitude faster than  accessing the time series directly. In addition, models are used as an access method over the underlying time series, this way we can solve we can access the relevant portions. These models are organized in a novel index denoted as \LNs. Extensive experimental analysis show  the speed up for approximate and exact queries  with varying the error guarantees.
-
-% faster than directly scanning it. These models are organized in a novel index denoted as \LNs  index. 
-
-%In addition, it efficiently supports exact historical queries by only accessing relevant portions of the time series.  This is unlike existing approaches, which access the entire time series to exactly answer the query. Moreover, we propose a novel \LNs  structure to organize these models.  
-
-%%To realize this system,  we propose a novel \LNs  structure. As real-world time series usually exhibits seasonal behavior, models in this index incorporate seasonality.
-%To construct  a \LN, the user specifies seasonality period, error guarantees levels, and a statistical forecast method.  
-%As time proceeds, the system incrementally updates the index and utilizes it to answer approximate and exact queries.
-%TimeTravel is implemented into PostgreSQL, thus achieving complete user transparency at the query level.  
-
-%Extensive experimental analysis show  to illustrate the speed up for approximate and exact queries  with varying the error guarantees.
 \end{abstract}
 
 \section{Introduction}
@@ -60,7 +43,7 @@ sensor data for weather information~\cite{arimaEng} or other environmental data)
 Typically, in real applications, time series  exhibit at least one  seasonal behaviors. For instance, household power consumption rises in winter (e.g., heating) and during the day and falls in the summer and at night. i.e, it exposes a yearly and daily seasonality periods. Modeling has been extensively used in different applications including forecasting, estimating, approximating, neuroscience, and rendering graphics for computer games.  Several  forecasting methods have been proposed for different applications such as neural network  for stock trading~\cite{stock},  effect-graph for foreign politics~\cite{iran} and ARIMA~\cite{tBOX76a} in energy domain~\cite{arimaEng}.  Forecasting is essential for  decision making applications (e.g., planning of production batches). 
 
 %These approaches mainly address mining and similarity  queries.
-To model time series, many techniques have been proposed in the literature including Piecewise Aggregate Approximation (PAA), Adaptive Piecewise Constant Approximation (APCA), Chebyshev polynomials (CHEB), Symbolic Aggregate approXimation (SAX), Indexable Piecewise Linear Approximation (IPLA).    A comparative performance study for mining and similarity  queries is presented in \cite{DTPE08}. IPLA slightly outperforms other methods in lower bounding for DTW distance function which is mainly used for similarity queries. 
+To model time series, many techniques have been proposed in the literature including Piecewise Aggregate Approximation (PAA), Adaptive Piecewise Constant Approximation (APCA), Chebyshev polynomials (CHEB), Symbolic Aggregate approXimation (SAX), Indexable Piecewise Linear Approximation (IPLA).    A comparative performance study for mining and similarity  queries is presented in \cite{DTPE08}. IPLA slightly  outperforms other methods in lower bounding for DTW distance function which is mainly used for similarity queries. 
 Traditionally, a time series  can be decomposed into a trend component, a seasonal component, and a local (i.e., stationary) component~\cite{Decompose}. 
 Statistical  forecasting methods (e.g., ARIMA~\cite{tBOX76a}) use these components  to accurately compute forecast values. For our purpose, we abstract a forecast method as a function of forecast parameters and states (i.e., past values) and outputs future values. We use this decomposition to represent the time series over the past and the future.
 Consider a motivating example from the energy domain: the power grid operator wants to investigate when the power consumption exceeded (or will exceed) a certain threshold (e.g., 90\%) of the network  over the previous and upcoming weeks. Several approaches (e.g.,\cite{AG99} and \cite{KML10}) use error and confidence to speedup the query execution. Consider for our example, an approximate answer with 1\% error  and 95\% confidence is adequate. A naive approach would scan the data points over the previous week, optimize parameters for a forecast method, and predict the time series for the next week. Finally, the query discards values that are lower than the specified threshold. Our proposed system performs this more intelligently, as will be explain next. 

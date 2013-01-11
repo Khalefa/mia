@@ -24,15 +24,15 @@ Class=CLatexEdit
 Document=models.tex
 
 [Frame0_Row0]
-cyCur=521
+cyCur=367
 cyMin=10
 
 [Frame0_Col0]
-cxCur=1139
+cxCur=1337
 cxMin=10
 
 [Frame0_View0,0]
-Cursor.row=45
-Cursor.column=274
-TopSubLine=59
+Cursor.row=293
+Cursor.column=238
+TopSubLine=1053
 
