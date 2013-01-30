@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=latex 2012.11.11)  11 JAN 2013 11:50
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=latex 2012.11.11)  30 JAN 2013 11:55
 entering extended mode
 **models.tex
 (C:\Users\khalefa\Documents\GitHub\VLDB13\models.tex
@@ -289,9 +289,9 @@ LaTeX Font Info:    Try loading font information for T1+pcr on input line 30.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\t1pcr.fd"
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-Overfull \hbox (12.7266pt too wide) in paragraph at lines 46--50
-\T1/ptm/m/n/9 lit-er-a-ture in-clud-ing Piece-wise Ag-gre-gate Ap-prox-i-ma-tio
-n (PAA), Adap-
+Overfull \hbox (1.6568pt too wide) in paragraph at lines 35--37
+\T1/ptm/m/n/9 al-lows Time-Travel to an-swer ap-prox-i-mate queries one or-der 
+of mag-
  []
 
 File: figs/example.eps Graphic file (type eps)
@@ -299,7 +299,7 @@ File: figs/example.eps Graphic file (type eps)
 File: figs/example_compoments.eps Graphic file (type eps)
  <figs/example_compoments.eps>
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 63.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 62.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -309,68 +309,67 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ]
 
 LaTeX Warning: Reference `sec:details' on page \thepage  undefined on input lin
-e 85.
+e 84.
 
 
 LaTeX Warning: Reference `sec:query' on page \thepage  undefined on input line 
-85.
+84.
 
 
 LaTeX Warning: Reference `sec:experiments' on page \thepage  undefined on input
- line 85.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
+ line 84.
 
 
 LaTeX Warning: Reference `fig:arch' on page \thepage  undefined on input line 1
-05.
+04.
 
 
 LaTeX Warning: Reference `fig:arch' on page \thepage  undefined on input line 1
-07.
+06.
 
 
 LaTeX Warning: Reference `fig:arch' on page \thepage  undefined on input line 1
-12.
+11.
+
+
+LaTeX Warning: Reference `fig:exampletree' on page \thepage  undefined on input
+ line 112.
 
 
 LaTeX Warning: Reference `fig:exampletree' on page \thepage  undefined on input
  line 113.
 
 
-LaTeX Warning: Reference `fig:exampletree' on page \thepage  undefined on input
- line 114.
+LaTeX Warning: Reference `fig:arch' on page \thepage  undefined on input line 1
+14.
 
 
 LaTeX Warning: Reference `fig:arch' on page \thepage  undefined on input line 1
-15.
+18.
 
-[2]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [2]
 
 LaTeX Warning: Reference `fig:arch' on page \thepage  undefined on input line 1
-19.
+25.
 
 
-LaTeX Warning: Reference `fig:arch' on page \thepage  undefined on input line 1
-26.
-
-
-Overfull \hbox (11.71912pt too wide) in paragraph at lines 136--138
+Overfull \hbox (11.71912pt too wide) in paragraph at lines 135--137
 []\T1/ptm/m/n/9 In this sec-tion, we give def-i-ni-tions for our pro-posed prob
 -lem. Through-
  []
 
 
-Overfull \hbox (38.71767pt too wide) in paragraph at lines 166--168
+Overfull \hbox (38.71767pt too wide) in paragraph at lines 165--167
 \T1/ptm/m/it/9 tee ($\OML/cmm/m/it/9 []$\T1/ptm/m/it/9 ,$\OML/cmm/m/it/9 []$\
 T1/ptm/m/it/9 ) while min-i-miz-ing the size of all mod-els, i.e., $\OML/cmm/m/
 it/9 Min\OT1/cmr/m/n/9 ([][] [])$\T1/ptm/m/it/9 . 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 255--256
+Underfull \hbox (badness 10000) in paragraph at lines 254--255
 [] $[] \OMS/cmsy/m/n/9   [] []f\OML/cmm/m/it/9 Mean\OT1/cmr/m/n/9 (\OML/cmm/m/i
 t/9 T\OT1/cmr/m/n/9 [1 :
  []
@@ -381,15 +380,24 @@ Underfull \vbox (badness 6758) has occurred while \output is active []
 
 
 LaTeX Warning: Reference `fig:hints' on page \thepage  undefined on input line 
-285.
+284.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 310--311
+Underfull \hbox (badness 10000) in paragraph at lines 309--310
 [] $[] \OMS/cmsy/m/n/9   [] [ \OML/cmm/m/it/9 FindPossibleTrend\OT1/cmr/m/n/9 (
 \OML/cmm/m/it/9 S:t\OT1/cmr/m/n/9 ) \OMS/cmsy/m/n/9 
  []
 
-[4] [5] (C:\Users\khalefa\Documents\GitHub\VLDB13\models.bbl) [6]
+[4]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [5]
+Overfull \hbox (12.7266pt too wide) in paragraph at lines 443--445
+\T1/ptm/m/n/9 lit-er-a-ture in-clud-ing Piece-wise Ag-gre-gate Ap-prox-i-ma-tio
+n (PAA), Adap-
+ []
+
+(C:\Users\khalefa\Documents\GitHub\VLDB13\models.bbl) [6]
 (C:\Users\khalefa\Documents\GitHub\VLDB13\models.aux)
 
 LaTeX Warning: There were undefined references.
@@ -398,10 +406,10 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  2795 strings out of 494046
  34316 string characters out of 3145985
- 102881 words of memory out of 3000000
+ 96881 words of memory out of 3000000
  6038 multiletter control sequences out of 15000+200000
  64118 words of font info for 77 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  39i,11n,26p,1026b,330s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on models.dvi (6 pages, 57464 bytes).
+Output written on models.dvi (6 pages, 57736 bytes).
