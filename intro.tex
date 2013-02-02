@@ -12,12 +12,15 @@ In energy domain, several forecasting methods including exponential smoothing \c
 Even in foreign politics relationship, a forecast models exist~\cite{iran}.
 
 %query time series
-For several applications, it is critical to see 
-Consider a motivating example from the energy domain: the power grid operator wants to investigate when the power consumption exceeded (or will exceed) a certain limit of the network  over the previous and upcoming weeks. Several approaches (e.g.,\cite{AG99} and \cite{KML10}) use error and confidence to speedup the query execution. 
-
-\begin{verbatim}{}
-SELECT 
+For several applications (e..g, smart grid),  it is  critical to integrate past and future data for two folds: first,  to forecast future data, past data in the time series needed to be accessed. Secondly, as the time passes, the transition of forecasted values to historic values should be seamlessly supported. Furthermore, the forecasted value  may be used until the actual value becomes available.   Consider the following query from  energy domain: the power grid operator investigates when the power consumption exceeded (or will exceed) a certain limit of the network  over the previous and upcoming weeks. 
+\begin{verbatim}
+SELECT time, current_load
+FROM   Power_load
+WHERE current_load>limit
+INTERVAL 
+      
 \end{verbatim}
+Several approaches (e.g.,\cite{AG99} and \cite{KML10}) use thresold and confidence to speedup the query execution. 
 
 Consider for our example, an approximate answer with 1\% error  and 95\% confidence is adequate. A naive approach would scan the data points over the previous week, optimize parameters for a forecast method, and predict the time series for the next week. Finally, the query discards values that are lower than the specified threshold. Our proposed system performs this more intelligently, as will be explain next. 
 
@@ -61,9 +64,9 @@ By storing the complements instead of the original timeseries,  we can greatly r
 \begin{figure*}[th]
 \center
 \subfigure{
-\includegraphics[width=2.0in]{figs/example.eps}}
+\includegraphics[width=2.0in]{figs/example.pdf}}
 \subfigure{
-\includegraphics[width=2.0in]{figs/example_compoments.eps}}
+\includegraphics[width=2.0in]{figs/example_compoments.pdf}}
 \caption{Motivating Example}
 \label{fig:example}
 \end{figure*} 
@@ -88,13 +91,14 @@ Over time, {\it new} values are added to the time series, and we incrementally u
 
 In the rest of this paper, first we formalize the problem statements in Section~\ref{sec:form}.   Section~\ref{sec:overview} provides an overview of the our proposed system. Section~\ref{sec:details} describes building the hierarchical model index, and  compression Section~\ref{sec:query} gives the details of query optimization and processing for approximate and exact queries.  The  related work is presented in Section~\ref{sec:related}. Section~\ref{sec:experiments} gives  our experimental analysis for our proposed system   using  both real-world time series data and synthetic data.
 
-\section{Running Example}
-\begin{figure*}[th]
-\center
-\includegraphics[width=6in]{figs/overview3.pdf}
-\caption{TimeTravel System Overview}
-\label{fig:arch}
-\end{figure*} 
+%\section{Running Example}
+%\begin{figure*}[th]
+
+%\center
+%\includegraphics[width=6in]{figs/overview3.pdf}
+%\caption{TimeTravel System Overview}
+%\label{fig:arch}
+%\end{figure*} 
 \begin{figure}[th]
 \center
 \includegraphics[width=3in]{figs/example_tree.pdf}
