@@ -5,6 +5,11 @@ S.~Acharya, P.~B. Gibbons, V.~Poosala, and S.~Ramaswamy.
 \newblock Join synopses for approximate query answering.
 \newblock {\em SIGMOD Rec.}, 28(2):275--286, June 1999.
 
+\bibitem{BlinkDB}
+S.~Agarwal, A.~Panda, B.~Mozafari, S.~Madden, and I.~Stoica.
+\newblock {BlinkDB: Queries with Bounded Errors and Bounded Response Times on
+  Very Large Data}.
+
 \bibitem{pluse}
 Y.~Ahmad, O.~Papaemmanouil, U.~\c{C}etintemel, and J.~Rogers.
 \newblock Simultaneous equation systems for query processing on continuous-time

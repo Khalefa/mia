@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.1)  2 FEB 2013 17:14
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.1)  24 FEB 2013 09:48
 entering extended mode
 **C:/Users/khalefa/Documents/GitHub/VLDB13/models.tex
 (C:/Users/khalefa/Documents/GitHub/VLDB13/models.tex
@@ -310,30 +310,33 @@ LaTeX Font Info:    Try loading font information for T1+pcr on input line 30.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\t1pcr.fd"
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-Overfull \hbox (1.6568pt too wide) in paragraph at lines 35--37
-\T1/ptm/m/n/9 al-lows Time-Travel to an-swer ap-prox-i-mate queries one or-der 
-of mag-
+(C:\Users\khalefa\Documents\GitHub\VLDB13\intro.tex
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 16.
+
+
+LaTeX Warning: Citation `BlinkDB' on page \thepage  undefined on input line 16.
+
+
+
+Overfull \hbox (19.1997pt too wide) in paragraph at lines 25--25
+[]\T1/pcr/m/n/9 time in INTERVAL time in [NOW-WEEK , NOW + WEEK][] 
  []
 
-(C:\Users\khalefa\Documents\GitHub\VLDB13\intro.tex
 
-LaTeX Warning: File `figs/example.pdf' not found on input line 67.
+! LaTeX Error: Unknown graphics extension: .eps.
 
-
-! Package pdftex.def Error: File `figs/example.pdf' not found.
-
-See the pdftex.def package documentation for explanation.
+See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.67 ...degraphics[width=2.0in]{figs/example.pdf}}
+l.69 ...degraphics[width=2.0in]{figs/example.eps}}
                                                   
-Using draft setting for this image.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-LaTeX Warning: File `figs/example_compoments.pdf' not found on input line 69.
+LaTeX Warning: File `figs/example_compoments.pdf' not found on input line 71.
 
 
 ! Package pdftex.def Error: File `figs/example_compoments.pdf' not found.
@@ -342,14 +345,12 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.69 ...width=2.0in]{figs/example_compoments.pdf}}
+l.71 ...width=2.0in]{figs/example_compoments.pdf}}
                                                   
 Using draft setting for this image.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 70.
 [1{C:/Users/khalefa/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
@@ -359,33 +360,33 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 LaTeX Warning: Reference `sec:details' on page \thepage  undefined on input lin
-e 92.
+e 94.
 
 
 LaTeX Warning: Reference `sec:query' on page \thepage  undefined on input line 
-92.
+94.
 
 
 LaTeX Warning: Reference `sec:experiments' on page \thepage  undefined on input
- line 92.
+ line 94.
 
 <figs/example_tree.pdf, id=15, 323.20741pt x 150.9088pt>
 File: figs/example_tree.pdf Graphic file (type pdf)
 
 <use figs/example_tree.pdf>
-Package pdftex.def Info: figs/example_tree.pdf used on input line 104.
+Package pdftex.def Info: figs/example_tree.pdf used on input line 106.
 (pdftex.def)             Requested size: 216.81pt x 101.2304pt.
 )
 
 LaTeX Warning: Reference `fig:arch' on page \thepage  undefined on input line 4
 4.
 
-[2 <C:/Users/khalefa/Documents/GitHub/VLDB13/figs/example_tree.pdf, page is rot
-ated 90 degrees>]
 
 LaTeX Warning: Reference `fig:arch' on page \thepage  undefined on input line 4
 6.
 
+[2 <C:/Users/khalefa/Documents/GitHub/VLDB13/figs/example_tree.pdf, page is rot
+ated 90 degrees>]
 
 LaTeX Warning: Reference `fig:arch' on page \thepage  undefined on input line 5
 1.
@@ -401,9 +402,6 @@ LaTeX Warning: Reference `fig:arch' on page \thepage  undefined on input line 5
 
 LaTeX Warning: Reference `fig:arch' on page \thepage  undefined on input line 6
 5.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \hbox (11.71912pt too wide) in paragraph at lines 75--77
@@ -425,13 +423,14 @@ t/9 T\OT1/cmr/m/n/9 [1 :
  []
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4]
+
 LaTeX Warning: Reference `fig:hints' on page \thepage  undefined on input line 
 224.
 
 
-Underfull \vbox (badness 6758) has occurred while \output is active []
-
- [4]
 Underfull \hbox (badness 10000) in paragraph at lines 249--250
 [] $[] \OMS/cmsy/m/n/9   [] [ \OML/cmm/m/it/9 FindPossibleTrend\OT1/cmr/m/n/9 (
 \OML/cmm/m/it/9 S:t\OT1/cmr/m/n/9 ) \OMS/cmsy/m/n/9 
@@ -453,12 +452,15 @@ n (PAA), Adap-
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 3398 strings out of 494045
- 42823 string characters out of 3145963
- 108914 words of memory out of 3000000
- 6613 multiletter control sequences out of 15000+200000
+ 3401 strings out of 494045
+ 42849 string characters out of 3145963
+ 105914 words of memory out of 3000000
+ 6615 multiletter control sequences out of 15000+200000
  75524 words of font info for 88 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  41i,11n,26p,1067b,315s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -481,7 +483,7 @@ helvetic/uhvb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/helvetic
 /uhvr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb
 ><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Progra
 m Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on models.pdf (7 pages, 286828 bytes).
+Output written on models.pdf (7 pages, 288335 bytes).
 PDF statistics:
  136 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

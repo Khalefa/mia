@@ -12,22 +12,24 @@ In energy domain, several forecasting methods including exponential smoothing \c
 Even in foreign politics relationship, a forecast models exist~\cite{iran}.
 
 %query time series
-For several applications (e..g, smart grid),  it is  critical to integrate past and future data for two folds: first,  to forecast future data, past data in the time series needed to be accessed. Secondly, as the time passes, the transition of forecasted values to historic values should be seamlessly supported. Furthermore, the forecasted value  may be used until the actual value becomes available.   Consider the following query from  energy domain: the power grid operator investigates when the power consumption exceeded (or will exceed) a certain limit of the network  over the previous and upcoming weeks. 
+For time series, it is  critical to integrate past and future data for two folds: first, to forecast future values in a time series, a forecast method  accesses past values.   Secondly, as the time passes, the transition of forecasted values to historic values should be seamlessly supported. Furthermore, the forecasted value  may be used until the actual value becomes available.   Consider the following query from  energy domain: the power grid operator investigates when the power consumption exceeded (or will exceed) a certain limit of the network  over the previous and upcoming weeks. Like 
+ (e.g.,\cite{AG99}, \cite{BlinkDB} and \cite{KML10}), we use threshold and confidence to speedup the query execution. 
+Consider for our example, an approximate answer with 1\% error  and 95\% confidence is adequate.
 \begin{verbatim}
-SELECT time, current_load
-FROM   Power_load
-WHERE current_load>limit
-INTERVAL 
-      
+SELECT time, load
+FROM   Power_consumption
+WHERE current_load>limit AND
+time in INTERVAL time in [NOW-WEEK , NOW + WEEK]      
+ERROR WITHIN 10% AT CONFIDENCE 95% ERROR  1%
+CONFIDENCE  95%
 \end{verbatim}
-Several approaches (e.g.,\cite{AG99} and \cite{KML10}) use thresold and confidence to speedup the query execution. 
+ A naive approach to answer this query would scan the data points over the previous week, optimize parameters for a forecast method, and predict the time series for the next week. Finally, the query discards values that are lower than the specified threshold. Our proposed system performs this more intelligently, as will be explain next. 
 
-Consider for our example, an approximate answer with 1\% error  and 95\% confidence is adequate. A naive approach would scan the data points over the previous week, optimize parameters for a forecast method, and predict the time series for the next week. Finally, the query discards values that are lower than the specified threshold. Our proposed system performs this more intelligently, as will be explain next. 
 
 Several approaches have been proposed to approximate a time series including Piecewise Aggregate Approximation (PAA), Adaptive Piecewise Constant Approximation (APCA),  Symbolic Aggregate approXimation (SAX). These approaches focus on similarity and querying time series by content.
 Traditionally, a time series  can be decomposed into a trend component, a seasonal component, and a local (i.e., stationary) component~\cite{Decompose}. 
 
-Several techniques have been proposed to model  time series 
+%Several techniques have been proposed to model  time series 
  
  %seasonality and model time series modeling
  % decomposing time series and use it to
@@ -48,7 +50,7 @@ Ignoring the time series seasonality  results in (1) increasing the number of mo
 
 
    
- For our purpose, we abstract a forecast method as a function of forecast parameters and states (i.e., past values) and outputs future values. We use this decomposition to represent the time series over the past and the future.
+ %For our purpose, we abstract a forecast method as a function of forecast parameters and states (i.e., past values) and outputs future values. We use this decomposition to represent the time series over the past and the future.
  
  %intergrating time series and forecast
  
@@ -64,7 +66,7 @@ By storing the complements instead of the original timeseries,  we can greatly r
 \begin{figure*}[th]
 \center
 \subfigure{
-\includegraphics[width=2.0in]{figs/example.pdf}}
+\includegraphics[width=2.0in]{figs/example.eps}}
 \subfigure{
 \includegraphics[width=2.0in]{figs/example_compoments.pdf}}
 \caption{Motivating Example}

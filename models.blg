@@ -122,6 +122,8 @@ I'm skipping whatever remains of this entry
 A bad cross reference---entry "KML10"
 refers to entry "DBLP:conf/cikm/2010", which doesn't exist
 Warning--I didn't find a database entry for "DBLP:conf/cikm/2010"
+Warning--empty journal in BlinkDB
+Warning--empty year in BlinkDB
 Warning--empty booktitle in isax2
 Warning--empty year in isax2
 (There were 28 error messages)

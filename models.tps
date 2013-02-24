@@ -57,11 +57,11 @@ cyCur=492
 cyMin=10
 
 [Frame1_Col0]
-cxCur=886
+cxCur=750
 cxMin=10
 
 [Frame1_View0,0]
-Cursor.row=90
-Cursor.column=25
-TopSubLine=191
+Cursor.row=85
+Cursor.column=212
+TopSubLine=44
 
